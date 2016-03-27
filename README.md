@@ -3,7 +3,7 @@
 
 # Screenshot
 ###### NBA
-
+![image](https://github.com/fuqinwu/SimpleNBA/blob/master/screenshot/nba.png)
 <br/>
 
 ###依赖的官方支持包
