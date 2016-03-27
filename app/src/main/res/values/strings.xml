@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SimpleNBA</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="top">新闻</string>
+    <string name="nba">博客</string>
+    <string name="cars">汽车</string>
+    <string name="jokes">笑话</string>
+    <string name="transition_news_img">transition_news_img</string>
+</resources>
