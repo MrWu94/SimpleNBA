@@ -1,7 +1,9 @@
 package com.hansheng.simplenba.nba.widget;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -109,15 +111,15 @@ public class NewListFragment extends Fragment implements NbaView, SwipeRefreshLa
         @Override
         public void onItemClick(View view, int position) {
             NbaBean news = mAdapter.getItem(position);
-            //    Intent intent = new Intent(getActivity(), NewsDetailActivity.class);
-            //  intent.putExtra("news", news);
+            Intent intent = new Intent(getActivity(), NbaDetailActivity.class);
+            intent.putExtra("news", news);
 
             View transitionView = view.findViewById(R.id.ivNews);
             ActivityOptionsCompat options =
                     ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
                             transitionView, getString(R.string.transition_news_img));
 
-            //         ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
+                    ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
         }
     };
 

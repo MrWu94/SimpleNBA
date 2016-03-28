@@ -5,7 +5,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.hansheng.simplenba.beans.NbaBean;
+import com.hansheng.simplenba.beans.NbaDetailBean;
 import com.hansheng.simplenba.utils.JsonUtils;
+import com.hansheng.simplenba.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +30,7 @@ public class NewsJsonUtils {
         List<NbaBean> beans = new ArrayList<NbaBean>();
         JsonParser parser = new JsonParser();
         JsonObject jsonobj = parser.parse(res).getAsJsonObject();
-        System.out.println("jsonobj=="+jsonobj.toString());
+        System.out.println("jsonobj==" + jsonobj.toString());
         JsonElement jsonElement = jsonobj.get("newslist");
         if (jsonElement == null) {
             return null;
@@ -40,6 +42,20 @@ public class NewsJsonUtils {
             beans.add(news);
         }
         return beans;
+    }
+
+
+    public static NbaDetailBean readJsonNewsDetailBeans(String res) {
+        NbaDetailBean newsDetailBean = null;
+        try {
+            JsonParser parser = new JsonParser();
+            JsonObject jsonObj = parser.parse(res).getAsJsonObject();
+            System.out.println("jsonObj=" + jsonObj);
+            newsDetailBean = JsonUtils.deserialize(parser.parse(res).getAsJsonObject(), NbaDetailBean.class);
+        } catch (Exception e) {
+            LogUtils.e(TAG, "readJsonNewsBeans error", e);
+        }
+        return newsDetailBean;
     }
 }
 

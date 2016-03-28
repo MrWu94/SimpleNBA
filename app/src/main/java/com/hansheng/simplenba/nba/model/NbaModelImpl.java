@@ -37,17 +37,17 @@ public class NbaModelImpl implements NbaModel {
 
     /**
      * 加载新闻详情
-     * @param docid
+     * @param url
      * @param listener
      */
     @Override
-    public void loadNewsDetail(final String docid, final OnLoadNewsDetailListener listener) {
+    public void loadNewsDetail(final String url, final OnLoadNewsDetailListener listener) {
      //   String url = getDetailUrl(docid);
         OkHttpUtils.ResultCallback<String> loadNewsCallback = new OkHttpUtils.ResultCallback<String>() {
             @Override
             public void onSuccess(String response) {
-             //   NbaDetailBean newsDetailBean = NewsJsonUtils.readJsonNewsDetailBeans(response, docid);
-             //   listener.onSuccess(newsDetailBean);
+                NbaDetailBean newsDetailBean = NewsJsonUtils.readJsonNewsDetailBeans(response);
+               listener.onSuccess(newsDetailBean);
             }
 
             @Override
@@ -55,7 +55,7 @@ public class NbaModelImpl implements NbaModel {
                 listener.onFailure("load news detail info failure.", e);
             }
         };
-   //     OkHttpUtils.get(url, loadNewsCallback);
+       OkHttpUtils.get(url, loadNewsCallback);
     }
 
 
