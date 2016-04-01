@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 
 import com.hansheng.simplenba.R;
 import com.hansheng.simplenba.beans.NbaBean;
+import com.hansheng.simplenba.beans.NextId;
 import com.hansheng.simplenba.nba.NbaAdapter;
 import com.hansheng.simplenba.nba.presenter.NbaPresenter;
 import com.hansheng.simplenba.nba.presenter.NewsPresenterImpl;
@@ -38,14 +39,15 @@ public class NewListFragment extends Fragment implements NbaView, SwipeRefreshLa
     private NbaAdapter mAdapter;
     private List<NbaBean> mData;
     private NbaPresenter mNewsPresenter;
+    private NextId next= new NextId();
 
-    private int mType = NbasFragment.NEWS_TYPE_TOP;
+    private String mType = NbasFragment.NEWS_TYPE_TOP;
     private int pageIndex = 0;
 
-    public static NewListFragment newInstance(int type) {
+    public static NewListFragment newInstance(String type) {
         Bundle args = new Bundle();
         NewListFragment fragment = new NewListFragment();
-        args.putInt("type", type);
+        args.putString("type", type);
         fragment.setArguments(args);
         return fragment;
     }
@@ -54,7 +56,7 @@ public class NewListFragment extends Fragment implements NbaView, SwipeRefreshLa
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mNewsPresenter = new NewsPresenterImpl(this);
-        mType = getArguments().getInt("type");
+        mType = getArguments().getString("type");
         System.out.println("mType=="+mType);
     }
 
@@ -102,7 +104,8 @@ public class NewListFragment extends Fragment implements NbaView, SwipeRefreshLa
                     && mAdapter.isShowFooter()) {
                 //加载更多
                 LogUtils.d(TAG, "loading more data");
-                //       mNewsPresenter.loadNews(mType, pageIndex + Urls.PAZE_SIZE);
+
+              //  mNewsPresenter.loadNews(mType,"");
             }
         }
     };
@@ -163,7 +166,7 @@ public class NewListFragment extends Fragment implements NbaView, SwipeRefreshLa
             mData.clear();
         }
         System.out.println("mType====="+mType);
-          mNewsPresenter.loadNews(mType);
+          mNewsPresenter.loadNews(mType,"");
        // mNewsPresenter.loadNews("http://nbaplus.sinaapp.com/api/v1.0/news/update",this);
 
     }

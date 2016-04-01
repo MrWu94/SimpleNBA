@@ -2,6 +2,7 @@ package com.hansheng.simplenba.nba.model;
 
 import com.hansheng.simplenba.beans.NbaBean;
 import com.hansheng.simplenba.beans.NbaDetailBean;
+import com.hansheng.simplenba.beans.NextId;
 import com.hansheng.simplenba.nba.NewsJsonUtils;
 import com.hansheng.simplenba.utils.OkHttpUtils;
 
@@ -18,11 +19,12 @@ public class NbaModelImpl implements NbaModel {
      * @param listener
      */
     @Override
-    public void loadNews(String url,int type, final OnLoadNewsListListener listener) {
+    public void loadNews(String url,String type, String bas,final OnLoadNewsListListener listener) {
         OkHttpUtils.ResultCallback<String> loadNewsCallback = new OkHttpUtils.ResultCallback<String>() {
             @Override
             public void onSuccess(String response){
                 List<NbaBean> newsBeanList = NewsJsonUtils.readJsonNewsBeans(response);
+                NextId newsBean = NewsJsonUtils.readJsonNextId(response);
                 System.out.println("newsBeanList="+newsBeanList);
                 listener.onSuccess(newsBeanList);
             }
@@ -32,7 +34,8 @@ public class NbaModelImpl implements NbaModel {
                 listener.onFailure("load news list failure.", e);
             }
         };
-        OkHttpUtils.get(url, loadNewsCallback);
+        System.out.println("url======"+url+bas);
+        OkHttpUtils.get(url+bas, loadNewsCallback);
     }
 
     /**

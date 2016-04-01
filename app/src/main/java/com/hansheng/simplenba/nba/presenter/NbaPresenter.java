@@ -5,6 +5,6 @@ package com.hansheng.simplenba.nba.presenter;
  */
 public interface NbaPresenter {
     void loadNews();
-    void loadNews(int type);
+    void loadNews(String type,String bas);
 
 }

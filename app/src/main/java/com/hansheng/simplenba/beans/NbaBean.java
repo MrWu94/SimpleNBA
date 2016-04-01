@@ -6,120 +6,125 @@ import java.util.List;
 /**
  * Created by hansheng on 2016/3/26.
  */
-public class NbaBean  implements Serializable {
+public class NbaBean implements Serializable {
 
-        /**
-         * contentType : ARTICLE
-         * description : 北京时间3月26日，在湖人主场对阵掘金的比赛中，榜眼丹吉洛-拉塞尔右脚踝扭伤，被搀扶离场。他在受伤后
-         * title : 拉塞尔脚踝扭伤 万幸骨头跟腱没问题
-         * putdate : 1458972000000
-         * imgUrlList : ["http://image.res.meizu.com/image/reader/215c90abac25f0f7edaa006e5d70a947/original"]
-         * randomNum : 1458971777000
-         * articleId : 117677376
-         * contentSourceName : NBA
-         * articleUrl : http://reader.res.meizu.com/reader/articlecontent/20160326/117677376.json
-         * type : IMAGETEXT
-         * sourceType : ZAKER
-         */
 
-        private String contentType;
-        private String description;
-        private String title;
-        private long putdate;
-        private long randomNum;
-        private int articleId;
-        private String contentSourceName;
-        private String articleUrl;
-        private String type;
-        private String sourceType;
-        private List<String> imgUrlList;
+    /**
+     * contentType : ARTICLE
+     * description : 北京时间3月26日，在湖人主场对阵掘金的比赛中，榜眼丹吉洛-拉塞尔右脚踝扭伤，被搀扶离场。他在受伤后
+     * title : 拉塞尔脚踝扭伤 万幸骨头跟腱没问题
+     * putdate : 1458972000000
+     * imgUrlList : ["http://image.res.meizu.com/image/reader/215c90abac25f0f7edaa006e5d70a947/original"]
+     * randomNum : 1458971777000
+     * articleId : 117677376
+     * contentSourceName : NBA
+     * articleUrl : http://reader.res.meizu.com/reader/articlecontent/20160326/117677376.json
+     * type : IMAGETEXT
+     * sourceType : ZAKER
+     */
 
-        public void setContentType(String contentType) {
-            this.contentType = contentType;
-        }
 
-        public void setDescription(String description) {
-            this.description = description;
-        }
 
-        public void setTitle(String title) {
-            this.title = title;
-        }
+    private String contentType;
+    private String description;
+    private String title;
+    private long putdate;
+    private long randomNum;
+    private int articleId;
+    private String contentSourceName;
+    private String articleUrl;
+    private String type;
+    private String sourceType;
+    private List<String> imgUrlList;
 
-        public void setPutdate(long putdate) {
-            this.putdate = putdate;
-        }
 
-        public void setRandomNum(long randomNum) {
-            this.randomNum = randomNum;
-        }
 
-        public void setArticleId(int articleId) {
-            this.articleId = articleId;
-        }
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
 
-        public void setContentSourceName(String contentSourceName) {
-            this.contentSourceName = contentSourceName;
-        }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-        public void setArticleUrl(String articleUrl) {
-            this.articleUrl = articleUrl;
-        }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-        public void setType(String type) {
-            this.type = type;
-        }
+    public void setPutdate(long putdate) {
+        this.putdate = putdate;
+    }
 
-        public void setSourceType(String sourceType) {
-            this.sourceType = sourceType;
-        }
+    public void setRandomNum(long randomNum) {
+        this.randomNum = randomNum;
+    }
 
-        public void setImgUrlList(List<String> imgUrlList) {
-            this.imgUrlList = imgUrlList;
-        }
+    public void setArticleId(int articleId) {
+        this.articleId = articleId;
+    }
 
-        public String getContentType() {
-            return contentType;
-        }
+    public void setContentSourceName(String contentSourceName) {
+        this.contentSourceName = contentSourceName;
+    }
 
-        public String getDescription() {
-            return description;
-        }
+    public void setArticleUrl(String articleUrl) {
+        this.articleUrl = articleUrl;
+    }
 
-        public String getTitle() {
-            return title;
-        }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-        public long getPutdate() {
-            return putdate;
-        }
+    public void setSourceType(String sourceType) {
+        this.sourceType = sourceType;
+    }
 
-        public long getRandomNum() {
-            return randomNum;
-        }
+    public void setImgUrlList(List<String> imgUrlList) {
+        this.imgUrlList = imgUrlList;
+    }
 
-        public int getArticleId() {
-            return articleId;
-        }
+    public String getContentType() {
+        return contentType;
+    }
 
-        public String getContentSourceName() {
-            return contentSourceName;
-        }
+    public String getDescription() {
+        return description;
+    }
 
-        public String getArticleUrl() {
-            return articleUrl;
-        }
+    public String getTitle() {
+        return title;
+    }
 
-        public String getType() {
-            return type;
-        }
+    public long getPutdate() {
+        return putdate;
+    }
 
-        public String getSourceType() {
-            return sourceType;
-        }
+    public long getRandomNum() {
+        return randomNum;
+    }
 
-        public List<String> getImgUrlList() {
-            return imgUrlList;
-        }
+    public int getArticleId() {
+        return articleId;
+    }
+
+    public String getContentSourceName() {
+        return contentSourceName;
+    }
+
+    public String getArticleUrl() {
+        return articleUrl;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getSourceType() {
+        return sourceType;
+    }
+
+    public List<String> getImgUrlList() {
+        return imgUrlList;
+    }
 
 }

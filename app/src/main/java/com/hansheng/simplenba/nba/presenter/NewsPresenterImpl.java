@@ -36,12 +36,12 @@ public class NewsPresenterImpl implements NbaPresenter, NbaModelImpl.OnLoadNewsL
     }
 
     @Override
-    public void loadNews(int type) {
+    public void loadNews(String type,String bas) {
 
         String url = getUrl(type);
         LogUtils.d(TAG, url);
         System.out.println("url="+url.toString());
-        mNewsModel.loadNews(url,type,this);
+        mNewsModel.loadNews(url,type,bas,this);
     }
 
     /**
@@ -49,7 +49,7 @@ public class NewsPresenterImpl implements NbaPresenter, NbaModelImpl.OnLoadNewsL
      * @param type
      * @return
      */
-    private String getUrl(int type) {
+    private String getUrl(String type) {
         StringBuffer sb = new StringBuffer();
         switch (type) {
             case NbasFragment.NEWS_TYPE_TOP:

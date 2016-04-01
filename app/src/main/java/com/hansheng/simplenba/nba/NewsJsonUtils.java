@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.hansheng.simplenba.beans.NbaBean;
 import com.hansheng.simplenba.beans.NbaDetailBean;
+import com.hansheng.simplenba.beans.NextId;
 import com.hansheng.simplenba.utils.JsonUtils;
 import com.hansheng.simplenba.utils.LogUtils;
 
@@ -26,11 +27,11 @@ public class NewsJsonUtils {
      * @param
      * @return
      */
+
     public static List<NbaBean> readJsonNewsBeans(String res) {
         List<NbaBean> beans = new ArrayList<NbaBean>();
         JsonParser parser = new JsonParser();
         JsonObject jsonobj = parser.parse(res).getAsJsonObject();
-        System.out.println("jsonobj==" + jsonobj.toString());
         JsonElement jsonElement = jsonobj.get("newslist");
         if (jsonElement == null) {
             return null;
@@ -41,8 +42,13 @@ public class NewsJsonUtils {
             NbaBean news = JsonUtils.deserialize(jo, NbaBean.class);
             beans.add(news);
         }
+        System.out.println("jsonobj="+jsonobj.get("nextId"));
+
+     //   System.out.println("jsonobj==" + jsonobj.toString());
         return beans;
     }
+
+
 
 
     public static NbaDetailBean readJsonNewsDetailBeans(String res) {
@@ -56,6 +62,20 @@ public class NewsJsonUtils {
             LogUtils.e(TAG, "readJsonNewsBeans error", e);
         }
         return newsDetailBean;
+    }
+
+    public static NextId readJsonNextId(String response) {
+
+        NextId nextId = null;
+        try {
+            JsonParser parser = new JsonParser();
+            JsonObject jsonObj = parser.parse(response).getAsJsonObject();
+            System.out.println("jsonObj=" + jsonObj);
+            nextId = JsonUtils.deserialize(parser.parse(response).getAsJsonObject(),NextId.class);
+        } catch (Exception e) {
+            LogUtils.e(TAG, "readJsonNewsBeans error", e);
+        }
+        return nextId;
     }
 }
 

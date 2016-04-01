@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    public static final int NEWS_TYPE_TOP = 0;
-    public static final int NEWS_TYPE_NBA = 1;
+    public static final String NEWS_TYPE_TOP ="0";
+    public static final String NEWS_TYPE_NBA = "1";
     public static final int NEWS_TYPE_CARS = 2;
     public static final int NEWS_TYPE_JOKES = 3;
     private TabLayout mTablayout;
